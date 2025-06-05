@@ -36,8 +36,6 @@ This project aligns with recent scholarship advocating for user empowerment and 
 
 ## Citation
 
-If you reference or build upon this work, please cite the following foundational papers:
-
 > **Kollnig, K., Datta, S., Serban von Davier, T., Van Kleek, M., Binns, R., Lyngs, U., & Shadbolt, N.** (2023).  
 > *‘We are adults and deserve control of our phones’: Examining the risks and opportunities of a right to repair for mobile apps.*  
 > In *Proceedings of the 2023 ACM Conference on Fairness, Accountability, and Transparency.*
