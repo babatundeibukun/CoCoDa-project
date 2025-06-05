@@ -1,0 +1,86 @@
+# ===========================================================
+# REVERSE ENGINEERING PROCESS – GREASEDROID METHOD
+# ===========================================================
+
+# Objective:
+# To access and modify the UI structure of the Twitter Android app.
+# This is necessary because UI hierarchy could not be accessed using
+# the Developer Assistant tool, which made Method 1 (GreaseMilkyway)
+# ineffective for this app.
+
+# Therefore, I reverse engineered the app to enable direct inspection
+# and manipulation of the APK file.
+
+# ===========================================================
+# STEP 1 – Acquire the Twitter APK from my Android device
+# ===========================================================
+
+# First, connect my Android phone to my PC via USB.
+
+# I downloaded and extracted the Android platform-tools
+# (includes ADB), and placed them in the root folder (C:\platform-tools)
+# to avoid modifying my system PATH.
+
+# Move into the platform-tools directory:
+cd /c/platform-tools
+
+# On my Android phone:
+# - Enabled 'Developer options'
+# - Enabled 'USB debugging'
+
+# Verify device is connected:
+./adb devices
+# Output:
+# List of devices attached
+# R95NA08K26H     device
+
+# List installed packages to find Twitter:
+./adb shell pm list packages | grep twitter
+# Output:
+# package:com.twitter.android
+
+# Get the actual file path(s) of Twitter APK on the device:
+./adb shell pm path com.twitter.android
+# Output:
+# package:/data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-Gl4XriicXoSA==/base.apk
+# package:/data/app/.../split_config.armeabi_v7a.apk
+# package:/data/app/.../split_config.en.apk
+# package:/data/app/.../split_config.xhdpi.apk
+
+# I only needed the base APK, so I pulled it to my local project folder:
+./adb pull /data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-Gl4XriicXoSA==/base.apk ./data/twitter.apk
+# Output:
+# 1 file pulled, 0 skipped. 37.1 MB/s (120047125 bytes in 3.083s)
+
+# Now, base.apk is available at ./data/twitter.apk inside my project folder.
+
+# ===========================================================
+# STEP 2 – Prepare for Decompilation
+# ===========================================================
+
+# Surprisingly, there was a missing file in the repository, the file for decompilation
+# Since I'm working via CLI, I needed to manually install tools for
+# APK decompilation and re-signing.
+
+# Installed the following tools:
+# - apktool: to decode and rebuild APK resources
+# - Java SDK: required for keytool and jarsigner
+# - keytool: for generating keystores
+# - jarsigner: to sign modified APKs so they can be installed on devices
+
+# apktool setup:
+# Downloaded apktool.jar and apktool.bat from:
+# https://ibotpeaches.github.io/Apktool/
+
+# Created a working folder for apktool (e.g., C:\apktool) and added the files there.
+# Did not add apktool to PATH, so I’ll run it manually via absolute path or from the working folder.
+
+# Next steps (to be documented next):
+# - Decompile twitter.apk using apktool
+# - Navigate to /res/layout/ or /smali/ to inspect UI and logic
+# - Make structural changes to layout or logic files
+# - Rebuild the APK
+# - Sign the APK with jarsigner
+# - Reinstall the modified APK on the Android device
+
+# These steps are ongoing and will be fully documented in the next section.
