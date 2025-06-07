@@ -15,32 +15,32 @@
 # STEP 1 – Acquire the Twitter APK from my Android device
 # ===========================================================
 
-# First, connect my Android phone to my PC via USB.
+# First, connected my Android phone to my PC via USB.
 
 # I downloaded and extracted the Android platform-tools
 # (includes ADB), and placed them in the root folder (C:\platform-tools)
 # to avoid modifying my system PATH.
 
 # Move into the platform-tools directory:
-cd /c/platform-tools
+$ cd /c/platform-tools
 
 # On my Android phone:
 # - Enabled 'Developer options'
 # - Enabled 'USB debugging'
 
 # Verify device is connected:
-./adb devices
+$ ./adb devices
 # Output:
 # List of devices attached
 # R95NA08K26H     device
 
 # List installed packages to find Twitter:
-./adb shell pm list packages | grep twitter
+$ ./adb shell pm list packages | grep twitter
 # Output:
 # package:com.twitter.android
 
 # Get the actual file path(s) of Twitter APK on the device:
-./adb shell pm path com.twitter.android
+$ ./adb shell pm path com.twitter.android
 # Output:
 # package:/data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-Gl4XriicXoSA==/base.apk
 # package:/data/app/.../split_config.armeabi_v7a.apk
@@ -48,7 +48,7 @@ cd /c/platform-tools
 # package:/data/app/.../split_config.xhdpi.apk
 
 # I only needed the base APK, so I pulled it to my local project folder:
-./adb pull /data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-Gl4XriicXoSA==/base.apk ./data/twitter.apk
+$ ./adb pull /data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-Gl4XriicXoSA==/base.apk ./data/twitter.apk
 # Output:
 # 1 file pulled, 0 skipped. 37.1 MB/s (120047125 bytes in 3.083s)
 
@@ -75,12 +75,63 @@ cd /c/platform-tools
 # Created a working folder for apktool (e.g., C:\apktool) and added the files there.
 # Did not add apktool to PATH, so I’ll run it manually via absolute path or from the working folder.
 
-# Next steps (to be documented next):
-# - Decompile twitter.apk using apktool
-# - Navigate to /res/layout/ or /smali/ to inspect UI and logic
-# - Make structural changes to layout or logic files
-# - Rebuild the APK
-# - Sign the APK with jarsigner
-# - Reinstall the modified APK on the Android device
+# ===========================================================
+# STEP 3 – Decompile the APK using Apktool
+# ===========================================================
 
-# These steps are ongoing and will be fully documented in the next section.
+# After downloading Apktool, I realized that it requires Java SDK to run.
+# Therefore, I installed the OpenJDK 21 distribution:
+# OpenJDK21U-jdk_x64_windows_hotspot_21.0.7_6
+
+# With Java configured, I was able to decompile the APK:
+$ java -jar /c/Code/greasedroid/apktool_2.11.1.jar d ./data/twitter.apk -o /.data/twitter_decoded
+
+# This decompiled the APK into human-readable resources and smali code.
+# The decoded files can now be patched and modified as needed.
+
+# ===========================================================
+# STEP 4 – Apply a Patch (Remove Notification Counter)
+# ===========================================================
+
+# Before applying the patch, I manually verified that the decoded
+# structure included the required target files for the patch:
+# - res/drawable/bg_unread_count_pill.xml
+# - res/values/styles.xml (to modify font size)
+
+# Apply the patch:
+$ ./patch/com.twitter.android/remove_unread_notification_count.sh ./data/twitter_decoded
+
+# ===========================================================
+# STEP 5 – Rebuild the APK
+# ===========================================================
+
+# Once patched, I rebuilt the application using Apktool:
+$ java -jar /c/Code/greasedroid/apktool_2.11.1.jar b twitter_decoded -o twitter_patched.apk
+
+# This created the modified APK (twitter_patched.apk) in the working directory.
+
+# ===========================================================
+# STEP 6 – Sign the APK
+# ===========================================================
+
+# Android requires all APKs to be signed before installation.
+# First, I generated a new keystore to sign the rebuilt APK:
+
+$ keytool -genkeypair -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias mykey
+
+# Key generated with the following metadata:
+# Signed by: CN=Ibukun Babatunde, OU=Maastricht, O=Maastricht, L=Limburg, ST=Limburg, C=NL
+# Digest algorithm: SHA-256
+# Signature algorithm: SHA256withRSA, 2048-bit key
+
+# Next, I used jarsigner to sign the rebuilt APK (not shown here for brevity).
+
+# ===========================================================
+# STEP 7 – Uninstall the Original App and Install the Patched Version
+# ===========================================================
+
+# To complete the workflow, I uninstalled the existing Twitter app
+# and then I can install the newly signed, patched APK on my device.
+
+# This concluded the reverse engineering and UI amendment process
+
