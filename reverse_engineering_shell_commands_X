@@ -15,7 +15,7 @@
 # STEP 1 – Acquire the Twitter APK from my Android device
 # ===========================================================
 
-# First, connected my Android phone to my PC via USB.
+# First, connected the Android phone to my PC via USB.
 
 # I downloaded and extracted the Android platform-tools
 # (includes ADB), and placed them in the root folder (C:\platform-tools)
