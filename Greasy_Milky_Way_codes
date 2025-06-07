@@ -1,0 +1,84 @@
+# 📱 GreaseMilkyway Overlay Rules  
+Purpose: To hide distracting UI components across selected Android applications using [GreaseMilkyway](https://github.com/GreasyFork/greasemilkyway) accessibility overlays.
+
+---
+
+## 📧 Gmail (`com.google.android.gm`)
+
+
+```plaintext
+# Hide Gmail bottom navigation bar
+com.google.android.gm##viewId=com.google.android.gm:id/hub_tabs_nav##colour=FFFFFF##comment=Hide Gmail bottom notification
+
+# Hide the search pane at the top of Gmail (I DID THIS PARTICULAR ONE JUST TO TEST HOW THE WHOLE CODE WORKS)
+com.google.android.gm##viewId=com.google.android.gm:id/open_search##colour=FFFFFF##comment=search pane
+```
+
+---
+
+## 🎵 TikTok (`com.zhiliaoapp.musically`)
+
+```plaintext
+# Hide the comment bar in TikTok
+com.zhiliaoapp.musically##viewId=com.zhiliaoapp.musically:id/d5u##colour=FFFFFF##comment=Hide comment bar
+
+# Hide the notifications icon or bar in TikTok
+com.zhiliaoapp.musically##viewId=com.zhiliaoapp.musically:id/kig##colour=FFFFFF##comment=Hide notifications bar
+
+# Hide the 'Explore For You' pane in TikTok
+com.zhiliaoapp.musically##viewId=com.zhiliaoapp.musically:id/p11##colour=FFFFFF##comment=Hide Explore For You Pane
+```
+
+---
+
+## 💬 WhatsApp (`com.whatsapp`)
+
+```plaintext
+# Hide the bottom navigation bar in WhatsApp
+com.whatsapp##viewId=com.whatsapp:id/bottom_nav##colour=FFFFFF##comment=Hide bottom navigation bar in WhatsApp
+```
+
+---
+
+## 📺 YouTube (`com.google.android.youtube`)
+
+```plaintext
+# Hide the toolbar that includes notifications and search
+com.google.android.youtube##viewId=com.google.android.youtube:id/toolbar##colour=FFFFFF##comment=Hide toolbar that contains notifications
+
+# Hide the video suggestions on the home or search results page
+com.google.android.youtube##viewId=com.google.android.youtube:id/results##colour=FFFFFF##comment=Hide YouTube video suggestions
+
+# Hide the watch panel under a playing video
+com.google.android.youtube##viewId=com.google.android.youtube:id/watch_panel##colour=FFFFFF##comment=Hide YouTube video suggestions
+```
+
+---
+
+## 🗂️ Notes
+
+- These rules were written for [GreaseMilkyway](https://github.com/GreasyFork/greasemilkyway) and follow its official rule format:
+
+  ```
+  <package-name>##viewId=<resource-id>##colour=<hex-color>##comment=<description>
+  ```
+
+- The hex colour used (`#FFFFFF`) overlays the target view with white, effectively hiding it.
+- All view IDs were gathered using the [Developer Assistant](https://play.google.com/store/apps/details?id=com.trianguloy.developertools) Android tool.
+
+---
+
+## ✅ Usage Instructions
+
+1. Install the **GreaseMilkyway** app on your Android device.
+2. Grant it **Accessibility Service** permissions.
+3. For each app (Gmail, TikTok, WhatsApp, YouTube), add the corresponding rules.
+4. Save and toggle the service ON.
+5. Open the target app to verify that specified elements are successfully hidden.
+
+---
+
+## 📌 License
+
+These rules are custom-built for academic review and testing.  
+Please respect each app's terms of service when modifying your interface.
