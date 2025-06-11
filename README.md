@@ -1,10 +1,10 @@
 # CoCoDa Project
 
-**CoCoDa** (Controllable Code-based Design Amendments) is a research-focused take-home project that explores technical interventions to mitigate systemic issues in mobile apps, especially those linked to digital self-determination, as conceptualized in the Digital Services Act (DSA). The project presents three distinct technical approaches to amending app user interfaces, each documented and implemented in its own method-specific file.
+**CoCoDa** (Concentration Of Control and Data) is a research-focused take-home project that explores technical interventions to mitigate systemic issues in mobile apps and Very Large Online Platforms(VLOPs) as conceptualized in the Digital Services Act (DSA). The project presents three distinct technical approaches to amending app user interfaces, each documented and implemented in its own method-specific file.
 
 ## Project Overview
 
-The primary goal of CoCoDa is to investigate alternative ways of enhancing user agency and transparency by enabling modifications to app interfaces. These methods are intended to address problematic patterns and opacity in app design—what might be termed "systemic app harms"—by giving users or auditors the tools to reshape and better understand app behaviors.
+The project has two main aims: 1) combine existing technical data access methods with novel legal approaches like the DSA and create new technical methods on this foundation, and to 2) advance current legally mandated platform data access methods and make them work in practice. Your research will be grounded in two use cases in the domains of social media and mobile applications. By creating integrated “techno-legal” tools, the project supports regulators, researchers, and civil society in studying and mitigating systemic risks arising from data and control concentration in Very Large Online Platforms (VLOPs).
 
 ### 📁 Methods
 
@@ -17,15 +17,6 @@ A reverse engineering approach where apps are decompiled, modified at the code o
 #### 🤖 Method 3 – **GreaseTerminator**
 A machine learning-based vision system that detects harmful or non-compliant UI patterns (e.g., deceptive consent flows) and amends them using image-based transformations or automation.
 
----
-
-## Structure
-
-CoCoDa-project/
-├── greaseMilkyway/ # Method 1: Overlay-based UI changes
-├── greaseDroid/ # Method 2: Decompiled app modifications
-├── greaseTerminator/ # Method 3: ML Vision-based UI adjustments
-└── README.md # Project documentation
 ---
 
 ## Motivation
