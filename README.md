@@ -4,7 +4,7 @@
 
 ## Project Overview
 
-The project has two main aims: 1) combine existing technical data access methods with novel legal approaches like the DSA and create new technical methods on this foundation, and to 2) advance current legally mandated platform data access methods and make them work in practice. Your research will be grounded in two use cases in the domains of social media and mobile applications. By creating integrated “techno-legal” tools, the project supports regulators, researchers, and civil society in studying and mitigating systemic risks arising from data and control concentration in Very Large Online Platforms (VLOPs).
+The project has two main aims: 1) combine existing technical data access methods with novel legal approaches like the DSA and create new technical methods on this foundation, and to 2) advance current legally mandated platform data access methods and make them work in practice. This research will be grounded in two use cases in the domains of social media and mobile applications. By creating integrated “techno-legal” tools, the project supports regulators, researchers, and civil society in studying and mitigating systemic risks arising from data and control concentration in Very Large Online Platforms (VLOPs).
 
 ### 📁 Methods
 
