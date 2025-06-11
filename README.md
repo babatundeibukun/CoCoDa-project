@@ -21,7 +21,7 @@ A machine learning-based vision system that detects harmful or non-compliant UI 
 
 ## Motivation
 
-This project aligns with recent scholarship advocating for user empowerment and the "right to repair" in the mobile ecosystem. By equipping users and developers with practical tools to contest and reshape app interfaces, CoCoDa engages with a growing movement towards ethical and accountable technology.
+This project aligns with recent scholarship advocating for user empowerment and the "right to repair" in the mobile ecosystem especially in accordance with the DSA 2022 about mitigating systemic ricks propagated by VLOPs. By equipping users and developers with practical tools to contest and reshape app interfaces, CoCoDa engages with a growing movement towards ethical and accountable technology.
 
 ---
 
