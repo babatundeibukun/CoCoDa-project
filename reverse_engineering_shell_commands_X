@@ -58,7 +58,7 @@ $ ./adb pull /data/app/~~7Q7hn7OBwrhrNkktiKUBXw==/com.twitter.android-VMvwTOPW9-
 # STEP 2 – Prepare for Decompilation
 # ===========================================================
 
-# Surprisingly, there was a missing file in the repository, the file for decompilation
+# Surprisingly, there was a missing file in the repository "parse.apk.py" which I believe was the file for decompilation
 # Since I'm working via CLI, I needed to manually install tools for
 # APK decompilation and re-signing.
 
