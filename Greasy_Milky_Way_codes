@@ -1,21 +1,7 @@
 # 📱 GreaseMilkyway Overlay Rules  
-Purpose: To hide distracting UI components across selected Android applications using [GreaseMilkyway](https://github.com/GreasyFork/greasemilkyway) accessibility overlays.
+Purpose: To hide distracting UI components across selected Android applications using [GreaseMilkyway](https://github.com/kasnder/GreaseMilkyway) accessibility overlays.
 
 ---
-
-## 📧 Gmail (`com.google.android.gm`)
-
-
-```plaintext
-# Hide Gmail bottom navigation bar
-com.google.android.gm##viewId=com.google.android.gm:id/hub_tabs_nav##colour=FFFFFF##comment=Hide Gmail bottom notification
-
-# Hide the search pane at the top of Gmail (I DID THIS PARTICULAR ONE JUST TO TEST HOW THE WHOLE CODE WORKS)
-com.google.android.gm##viewId=com.google.android.gm:id/open_search##colour=FFFFFF##comment=search pane
-```
-
----
-
 ## 🎵 TikTok (`com.zhiliaoapp.musically`)
 
 ```plaintext
@@ -27,15 +13,6 @@ com.zhiliaoapp.musically##viewId=com.zhiliaoapp.musically:id/kig##colour=FFFFFF#
 
 # Hide the 'Explore For You' pane in TikTok
 com.zhiliaoapp.musically##viewId=com.zhiliaoapp.musically:id/p11##colour=FFFFFF##comment=Hide Explore For You Pane
-```
-
----
-
-## 💬 WhatsApp (`com.whatsapp`)
-
-```plaintext
-# Hide the bottom navigation bar in WhatsApp
-com.whatsapp##viewId=com.whatsapp:id/bottom_nav##colour=FFFFFF##comment=Hide bottom navigation bar in WhatsApp
 ```
 
 ---
@@ -53,18 +30,39 @@ com.google.android.youtube##viewId=com.google.android.youtube:id/results##colour
 com.google.android.youtube##viewId=com.google.android.youtube:id/watch_panel##colour=FFFFFF##comment=Hide YouTube video suggestions
 ```
 
+## 📧 Gmail (`com.google.android.gm`)
+
+
+```plaintext
+# Hide Gmail bottom navigation bar
+com.google.android.gm##viewId=com.google.android.gm:id/hub_tabs_nav##colour=FFFFFF##comment=Hide Gmail bottom notification
+
+# Hide the search pane at the top of Gmail (I DID THIS PARTICULAR ONE JUST TO TEST HOW THE WHOLE CODE WORKS)
+com.google.android.gm##viewId=com.google.android.gm:id/open_search##colour=FFFFFF##comment=search pane
+```
+
 ---
+
+## 💬 WhatsApp (`com.whatsapp`)
+
+```plaintext
+# Hide the bottom navigation bar in WhatsApp
+com.whatsapp##viewId=com.whatsapp:id/bottom_nav##colour=FFFFFF##comment=Hide bottom navigation bar in WhatsApp
+```
+
+---
+
 
 ## 🗂️ Notes
 
-- These rules were written for [GreaseMilkyway](https://github.com/GreasyFork/greasemilkyway) and follow its official rule format:
+- These rules were written for [GreaseMilkyway](https://github.com/kasnder/GreaseMilkyway) and follow its official rule format:
 
   ```
   <package-name>##viewId=<resource-id>##colour=<hex-color>##comment=<description>
   ```
 
 - The hex colour used (`#FFFFFF`) overlays the target view with white, effectively hiding it.
-- All view IDs were gathered using the [Developer Assistant](https://play.google.com/store/apps/details?id=com.trianguloy.developertools) Android tool.
+- All view IDs were gathered using the [Developer Assistant](https://play.google.com/) Android tool.
 
 ---
 
