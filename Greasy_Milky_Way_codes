@@ -26,8 +26,8 @@ com.google.android.youtube##viewId=com.google.android.youtube:id/toolbar##colour
 # Hide the video suggestions on the home or search results page
 com.google.android.youtube##viewId=com.google.android.youtube:id/results##colour=FFFFFF##comment=Hide YouTube video suggestions
 
-# Hide the watch panel under a playing video
-com.google.android.youtube##viewId=com.google.android.youtube:id/watch_panel##colour=FFFFFF##comment=Hide YouTube video suggestions
+# Hide the ads panel under a playing video
+com.google.android.youtube##viewId=com.google.android.youtube:id/watch_panel##colour=FFFFFF##comment=Hide the ads under a playing video
 ```
 
 ## 📧 Gmail (`com.google.android.gm`)
