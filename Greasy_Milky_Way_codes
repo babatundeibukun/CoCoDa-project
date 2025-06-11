@@ -68,8 +68,8 @@ com.whatsapp##viewId=com.whatsapp:id/bottom_nav##colour=FFFFFF##comment=Hide bot
 
 ## ✅ Usage Instructions
 
-1. Install the **GreaseMilkyway** app on your Android device.
-2. Grant it **Accessibility Service** permissions.
+1. Install the GreaseMilkyway app on your Android device.
+2. Grant it Accessibility Service permissions.
 3. For each app (Gmail, TikTok, WhatsApp, YouTube), add the corresponding rules.
 4. Save and toggle the service ON.
 5. Open the target app to verify that specified elements are successfully hidden.
