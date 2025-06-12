@@ -1,0 +1,75 @@
+
+# Technical Setup Documentation and Challenges for GreaseTerminator Project Repository
+---
+
+## Overview
+
+This document outlines the process and technical challenges encountered while setting up and running the ML-vision Python-based project cloned from the GitHub repository. The repository did not provide a `requirements.txt` file, making environment setup more manual and technically demanding.
+
+---
+
+## Environment Preparation
+
+To ensure isolated package management and avoid conflicts with global Python installations, I opted to use a virtual environment. My computer has multiple Python versions installed, including 3.1, 3.7, 3.9, 3.11 with `py -0` confirming:
+
+```bash
+$ py -0
+
+```
+
+**Virtual environment setup:**
+
+```bash
+py -3.7 -m venv myenv
+source myenv/Scripts/activate  
+
+```
+
+No success/error message appeared upon creation or activation, which made troubleshooting difficult. I verified activation using:
+
+```bash
+where python
+```
+which shows the  problem, I was eventually able to create a virtual environment with python 3.7 since 3.9 worked but was running into problems with scikit-learn installation , it couldn't build wheels for scikit-learn. 
+---
+
+## Dependency Installation
+
+The repository lacked a `requirements.txt`, so I manually attempted to install packages as errors arose during script execution.
+
+
+```
+Before I tried to use python 3.7 , I was initially using python 3.9 It was all sucessfull until I tried to run the entire script , it was capturing the images shown on the android but it was in black and white and it didn't blur out the image and it was throwing  the error , 
+
+ModuleNotFoundError: No module named 'sklearn.linear_model.logistic'
+
+Installing `scikit-learn` required a specific version compatible with Python 3.7, as newer versions dropped support.
+
+---
+
+## Recommendations for Repository Improvement
+
+- Add `requirements.txt` with pinned versions for these dependencies:
+  ```txt
+  scikit-learn
+  opencv-python
+  numpy
+  matplotlib
+  pillow
+  requests
+  imutils
+  pytesseract
+  hatesonar
+  imagehash
+  nudenet
+  ```
+
+- Include setup instructions in a `README.md`:
+  - How to create and activate a virtual environment.
+  - How to install dependencies.
+  - Expected Python version.
+  - download and install Tesseract-OCR
+
+
+---
+
